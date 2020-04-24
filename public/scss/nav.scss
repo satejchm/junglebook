@@ -1,0 +1,63 @@
+.logo {
+  position: absolute;
+  top: 38px;
+  left: 50px;
+  width: 168px;
+  height: 55px;
+  z-index: 99;
+}
+
+nav {
+  font-family: $caveat;
+  font-size: 25px;
+  position: absolute;
+  top: 38px;
+  right: 50px;
+  height: 52px;
+  width: 550px;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      border-bottom: 3px solid;
+      padding: 3px;
+    }
+  }
+
+  #login {
+    background-color: $yellow;
+    border-radius: 26px;
+    padding: 16px 50px;
+    border-bottom: 2px solid;
+  }
+}
+
+.bars {
+  position: absolute;
+  top: 55px;
+  right: 50px;
+  display: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+@media all and (max-width: 768px) {
+  nav {
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .bars {
+    display: block;
+  }
+}

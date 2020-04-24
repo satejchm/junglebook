@@ -1,0 +1,27 @@
+{
+  "MainNav": [
+    { "path": "home", "linkName": "Home" },
+    { "path": "browse", "linkName": "Browse" },
+    { "path": "create-recipe", "linkName": "Create Recipe" },
+    { "path": "login", "linkName": "Login" }
+  ],
+
+  "Pages": [
+    {
+      "pageName": "home",
+      "content": "<div class='home'><div class='home-info-holder'><div class='home-info'><h1>The Jungle Cook</h1><p>The home to various recipes of your choice. Add your own recipe today and fill the world with joy!</p></div><div class='pink-circle'><p>Want to be a jungle cook? Go ahead and the kitchen is yours!</p></div></div>"
+    },
+    {
+      "pageName": "browse",
+      "content": "<div class='browse'><div class='header-holder'><h1>Recipes: Try some today!</h1></div><div class='recipe-list-holder'><div class='recipe'><div class='recipe-image pizza'><div class='recipe-button'><a href='#'>View</a></div></div><div class='recipe-info'><h2 id=recipeName>Supreme Pizza:</h2><p>Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!</p><div class='time-serv'><img src='../images/time.svg' alt='time image' style='width: 23px; height: 24px;'>1h 24min</h3></div><div class='time-serv serv'><img src='../images/servings.svg' alt='time image' style='width: 23px; height: 24px;'>4 servings</div></div></div><div class='recipe'><div class='recipe-image burger'><div class='recipe-button'><a href='#'>View</a></div></div><div class='recipe-info'><h2>Classic Burger:</h2><p>Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.</p><div class='time-serv'><img src='../images/time.svg' alt='time image' style='width: 23px; height: 24px;'>30 min</h3></div><div class='time-serv serv'><img src='../images/servings.svg' alt='time image' style='width: 23px; height: 24px;'>4 servings</div></div></div><div class='recipe'><div class='recipe-image chicken'><div class='recipe-button'><a href='#'>View</a></div></div><div class='recipe-info'><h2>Chicken Biryani:</h2><p>Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.</p><div class='time-serv'><img src='../images/time.svg' alt='time image' style='width: 23px; height: 24px;'>1h 15min</h3></div><div class='time-serv serv'><img src='../images/servings.svg' alt='time image' style='width: 23px; height: 24px;'>6 servings</div></div></div><div class='recipe'><div class='recipe-image chow'><div class='recipe-button'><a href='#'>View</a></div></div><div class='recipe-info'><h2>Ch. Chow Mein:</h2><p>A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!</p><div class='time-serv'><img src='../images/time.svg' alt='time image' style='width: 23px; height: 24px;'>20min</h3></div><div class='time-serv serv'><img src='../images/servings.svg' alt='time image' style='width: 23px; height: 24px;'>4 servings</div></div></div></div></div>"
+    },
+    {
+      "pageName": "create-recipe",
+      "content": "<div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, create your recipe!</h1></div><input id='recipe-image' class='input' type='text' name='image' placeholder='Add Recipe Image'><input id='recipeName' class='input' type='text'  name='name' placeholder='Recipe Name'><input id='recipe-desciption' class='input' type='text' name='description' placeholder='Recipe Description'><input id='recipe-time' class='input' type='text'  name='time' placeholder='Recipe Total Time'><input id='recipe-servings' class='input' type='text'  name='servings' placeholder='Recipe Serving Size'><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><input class='input' type='text' name='image' placeholder='Ingredient #1'><input class='input' type='text'  name='image' placeholder='Ingredient #2'><input class='input' type='text'  name='ingredient' placeholder='Ingredient #3'><div class='header-holder'><h2>Enter Instructions:</h2></div><input class='input' type='text'  name='image' placeholder='Instruction #1'><input class='input' type='text'  name='instuctions' placeholder='Instruction #2'><input class='input' type='text'  name='instructions' placeholder='Instruction #3'><a class='create-recipe-button'>Create Recipe</a></div></div></div>"
+    },
+    {
+      "pageName": "login",
+      "content": "<div class='login-wrapper'><div class='holder'><div class='input-holder'><div class='header-holder'><h1>Login Here!</h1></div><input class='input' type='text' name='email' placeholder='Email Address'><input class='input' type='text'  name='password' placeholder='Password'><div class='login-button'>Login</div></div><div class='input-holder'><div class='header-holder'><p>Don't have an account?</p><h1>Sign Up!</h1></div><input class='input' type='text'  name='fname' placeholder='First Name'><input class='input' type='text'  name='lname' placeholder='Last Name'><input class='input' type='text' name='email' placeholder='Email Address'><input class='input' type='text'  name='password' placeholder='Password'><div class='login-button'>Sign Up</div></div></div></div>"
+    }
+  ]
+}

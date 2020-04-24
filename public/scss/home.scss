@@ -1,0 +1,72 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(242, 92, 84, 0.6),
+      rgba(242, 92, 84, 0.6)
+    ),
+    url(../images/hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: black;
+
+  .home-info-holder {
+    margin-top: 200px;
+    .pink-circle {
+      position: relative;
+      top: -430px;
+      right: -250px;
+      height: 168px;
+      width: 168px;
+      font-family: sans-serif;
+      background-color: $l-pink;
+      border-radius: 100px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      z-index: 9;
+
+      p {
+        width: 120px;
+        font-size: 10px;
+        font-family: $lato;
+      }
+    }
+
+    .home-info {
+      position: relative;
+      height: 360px;
+      width: 360px;
+      font-family: sans-serif;
+      background-color: $yellow;
+      border-radius: 200px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+
+      p {
+        width: 165px;
+        font-size: 13px;
+        font-family: $lato;
+      }
+      h1 {
+        font-family: $caveat;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

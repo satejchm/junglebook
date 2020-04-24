@@ -1,0 +1,529 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px; }
+
+.logo {
+  position: absolute;
+  top: 38px;
+  left: 50px;
+  width: 168px;
+  height: 55px;
+  z-index: 99; }
+
+nav {
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+  position: absolute;
+  top: 38px;
+  right: 50px;
+  height: 52px;
+  width: 550px;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  nav a {
+    text-decoration: none;
+    color: black; }
+    nav a:hover {
+      border-bottom: 3px solid;
+      padding: 3px; }
+  nav #login {
+    background-color: #ffd972;
+    border-radius: 26px;
+    padding: 16px 50px;
+    border-bottom: 2px solid; }
+
+.bars {
+  position: absolute;
+  top: 55px;
+  right: 50px;
+  display: none;
+  cursor: pointer;
+  z-index: 100; }
+
+@media all and (max-width: 768px) {
+  nav {
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-around; }
+  .bars {
+    display: block; } }
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../images/hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: black; }
+  .home .home-info-holder {
+    margin-top: 200px; }
+    .home .home-info-holder .pink-circle {
+      position: relative;
+      top: -430px;
+      right: -250px;
+      height: 168px;
+      width: 168px;
+      font-family: sans-serif;
+      background-color: #fcbcb8;
+      border-radius: 100px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      z-index: 9; }
+      .home .home-info-holder .pink-circle p {
+        width: 120px;
+        font-size: 10px;
+        font-family: "Lato", sans-serif; }
+    .home .home-info-holder .home-info {
+      position: relative;
+      height: 360px;
+      width: 360px;
+      font-family: sans-serif;
+      background-color: #ffd972;
+      border-radius: 200px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      z-index: 99; }
+      .home .home-info-holder .home-info p {
+        width: 165px;
+        font-size: 13px;
+        font-family: "Lato", sans-serif; }
+      .home .home-info-holder .home-info h1 {
+        font-family: "Caveat", cursive;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px; }
+
+.footer-wrapper {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .footer-wrapper .footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    font-size: 15px; }
+    .footer-wrapper .footer .copyright {
+      justify-content: center; }
+    .footer-wrapper .footer .links {
+      width: 50%;
+      display: flex;
+      justify-content: space-around; }
+      .footer-wrapper .footer .links a {
+        text-decoration: none;
+        color: black; }
+        .footer-wrapper .footer .links a:hover {
+          border-bottom: 2px solid;
+          padding: 3px; }
+    .footer-wrapper .footer .media {
+      background-color: blue;
+      justify-content: center; }
+
+@media (max-width: 200px) {
+  .footer-wrapper .footer {
+    flex-direction: column; } }
+
+.browse {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, rgba(167, 232, 189, 0.8), rgba(167, 232, 189, 0.8)), url(../images/recipe-hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Caveat", cursive; }
+  .browse .header-holder {
+    width: 75%;
+    align-items: left;
+    justify-content: left;
+    margin-top: 150px; }
+    .browse .header-holder h1 {
+      text-align: left; }
+  .browse .recipe-list-holder {
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 100px; }
+    .browse .recipe-list-holder .recipe {
+      display: flex;
+      flex-direction: row;
+      padding: 50px; }
+      .browse .recipe-list-holder .recipe .recipe-button {
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+        background-color: #ffd972;
+        border-radius: 26px;
+        padding: 16px 50px;
+        font-size: 25px;
+        text-decoration: none;
+        border-bottom: 2px solid; }
+        .browse .recipe-list-holder .recipe .recipe-button:hover {
+          border-bottom: 3px solid; }
+        .browse .recipe-list-holder .recipe .recipe-button a {
+          text-decoration: none;
+          color: black; }
+      .browse .recipe-list-holder .recipe .recipe-image {
+        width: 300px;
+        height: 263px;
+        background-color: #fcbcb8;
+        border-radius: 20px; }
+      .browse .recipe-list-holder .recipe .pizza {
+        background-image: url("../images/recipe-pizza.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .browse .recipe-list-holder .recipe .burger {
+        background-image: url("../images/recipe-burger.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .browse .recipe-list-holder .recipe .chicken {
+        background-image: url("../images/recipe-pilaf.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .browse .recipe-list-holder .recipe .chow {
+        background-image: url("../images/recipe-chowmein.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .browse .recipe-list-holder .recipe .recipe-info {
+        width: 224px;
+        height: 263px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column; }
+        .browse .recipe-list-holder .recipe .recipe-info h2 {
+          margin-top: 20%;
+          margin-left: 50px;
+          margin-right: 50px;
+          font-size: 15px;
+          font-family: "Lato", sans-serif;
+          border-bottom: 2px solid;
+          border-width: 80%;
+          padding: 3px; }
+        .browse .recipe-list-holder .recipe .recipe-info p {
+          margin-left: 50px;
+          margin-right: 50px;
+          font-size: 9px;
+          font-family: "Lato", sans-serif; }
+        .browse .recipe-list-holder .recipe .recipe-info .time-serv {
+          font-size: 9px;
+          font-family: "Lato", sans-serif;
+          margin-left: 50px;
+          margin-right: 50px;
+          display: flex;
+          flex-direction: row;
+          width: 100px;
+          justify-content: space-around; }
+        .browse .recipe-list-holder .recipe .recipe-info .serv {
+          margin-top: 15px; }
+
+.create {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Caveat", cursive; }
+
+.input-holder {
+  margin-top: 100px;
+  margin-bottom: 200px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Lato", sans-serif; }
+  .input-holder .create-recipe-button {
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    background-color: #efa7a7;
+    border-radius: 26px;
+    padding: 16px 100px; }
+    .input-holder .create-recipe-button a {
+      text-decoration: none;
+      color: black; }
+      .input-holder .create-recipe-button a:hover {
+        border-bottom: 2px solid;
+        padding: 3px; }
+  .input-holder .header-holder {
+    width: 75%;
+    align-items: left;
+    justify-content: left;
+    margin-top: 150px;
+    font-family: "Caveat", cursive; }
+    .input-holder .header-holder h1 {
+      text-align: left; }
+    .input-holder .header-holder h2 {
+      font-size: 20px;
+      font-family: "Lato", sans-serif;
+      font-weight: bold; }
+  .input-holder .input {
+    margin-top: 75px;
+    font-size: 20px;
+    height: 50px;
+    width: 1000px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black; }
+
+.login-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Caveat", cursive;
+  background-color: #ffd972; }
+
+.holder {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: row;
+  justify-content: space-around; }
+  .holder .input-holder {
+    margin-top: 100px;
+    margin-bottom: 200px;
+    margin-right: 100px;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: "Lato", sans-serif; }
+    .holder .input-holder .login-button {
+      margin-top: 100px;
+      font-size: 25px;
+      font-family: "Caveat", cursive;
+      background-color: #ffd972;
+      border-radius: 26px;
+      padding: 16px 100px;
+      border-bottom: 2px solid; }
+      .holder .input-holder .login-button a {
+        text-decoration: none;
+        color: black; }
+        .holder .input-holder .login-button a:hover {
+          border-bottom: 3px solid; }
+    .holder .input-holder .header-holder {
+      font-family: "Lato", sans-serif; }
+      .holder .input-holder .header-holder p {
+        font-size: 10px; }
+      .holder .input-holder .header-holder h1 {
+        text-align: left; }
+    .holder .input-holder .input {
+      background-color: #ffd972;
+      margin-top: 25px;
+      font-size: 20px;
+      height: 50px;
+      width: 250px;
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: black; }
+
+@media all and (max-width: 768px) {
+  .holder {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; } }
+
+.view-recipe {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Caveat", cursive; }
+
+h1,
+h2 {
+  font-family: "Lato", sans-serif; }
+
+p {
+  font-size: 20px; }
+
+.view-recipe-holder {
+  margin-top: 150px;
+  margin-bottom: 200px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-align: left; }
+  .view-recipe-holder .vertical-align {
+    width: 100%;
+    min-height: 50%;
+    transform: rotate(270deg);
+    transform-origin: left top 0;
+    float: left; }
+  .view-recipe-holder .vertical-align-items {
+    margin-right: 200px;
+    width: 30%;
+    margin-left: 100px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    margin-bottom: 75px; }
+    .view-recipe-holder .vertical-align-items .column-items {
+      margin-left: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: left; }
+  .view-recipe-holder .image-info-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row; }
+  .view-recipe-holder .edit-recipe-button {
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    background-color: #ffd972;
+    border-radius: 26px;
+    padding: 16px 100px; }
+    .view-recipe-holder .edit-recipe-button a {
+      text-decoration: none;
+      color: black; }
+      .view-recipe-holder .edit-recipe-button a:hover {
+        border-bottom: 2px solid;
+        padding: 3px; }
+
+.edit {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Caveat", cursive; }
+
+.input-holder {
+  margin-top: 100px;
+  margin-bottom: 200px;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-family: "Lato", sans-serif; }
+  .input-holder .save-changes-button {
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    background-color: #efa7a7;
+    border-radius: 26px;
+    padding: 16px 100px; }
+    .input-holder .save-changes-button a {
+      text-decoration: none;
+      color: black; }
+      .input-holder .save-changes-button a:hover {
+        border-bottom: 2px solid;
+        padding: 3px; }
+  .input-holder .delete-button {
+    margin-top: 100px;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    background-color: #efa7a7;
+    border-radius: 26px;
+    padding: 16px 100px; }
+    .input-holder .delete-button a {
+      text-decoration: none;
+      color: black; }
+      .input-holder .delete-button a:hover {
+        border-bottom: 2px solid;
+        padding: 3px; }
+  .input-holder .header-holder {
+    width: 75%;
+    align-items: left;
+    justify-content: left;
+    margin-top: 150px;
+    font-family: "Caveat", cursive; }
+    .input-holder .header-holder h1 {
+      text-align: left; }
+    .input-holder .header-holder h2 {
+      font-size: 20px;
+      font-family: "Lato", sans-serif;
+      font-weight: bold; }
+  .input-holder .input {
+    margin-top: 75px;
+    font-size: 20px;
+    height: 50px;
+    width: 1000px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black; }

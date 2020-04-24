@@ -1,0 +1,16 @@
+{
+  "name": "junglebook",
+  "version": "1.0.0",
+  "description": "this is a recipe app",
+  "main": "index.js",
+  "scripts": {
+    "host": "firebase serve --only hosting",
+    "sass": "node-sass public/scss/styles.scss public/css/styles.css -w",
+    "deploy": "firebase deploy --except functions"
+  },
+  "author": "sarah tejchma",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
