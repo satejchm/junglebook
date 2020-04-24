@@ -1,4 +1,3 @@
-didn = 0;
 //function to display bars when the screen resolution is a certain width
 function init() {
   let navOpen = false;
