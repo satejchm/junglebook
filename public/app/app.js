@@ -9,6 +9,10 @@ function init() {
       $("nav").css("display", "flex");
       navOpen = true;
     }
+    $("nav").click(function (e) {
+      $("nav").css("display", "none");
+      navOpen = false;
+    });
   });
 }
 
