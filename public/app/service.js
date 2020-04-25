@@ -31,11 +31,7 @@ var JUNGLE_SERVICE = (function () {
     recipeTime,
     recipeServing,
     recipeIngredient,
-    recipeIngredientTwo,
-    recipeIngredientThree,
-    recipeInstruction,
-    recipeInstructionTwo,
-    recipeInstructionThree
+    recipeInstruction
   ) {
     let recipeInfo = {
       recipeImage: recipeImage,
@@ -44,11 +40,7 @@ var JUNGLE_SERVICE = (function () {
       recipeTime: recipeTime,
       recipeServing: recipeServing,
       recipeIngredient: recipeIngredient,
-      recipeIngredient: recipeIngredientTwo,
-      recipeIngredient: recipeIngredientThree,
       recipeInstruction: recipeInstruction,
-      recipeInstruction: recipeInstructionTwo,
-      recipeInstruction: recipeInstructionThree,
     };
 
     _db
@@ -63,6 +55,7 @@ var JUNGLE_SERVICE = (function () {
       });
   };
 
+  //when you edit a recipe this function updates the information in the database
   var _updateRecipe = function (
     id,
     recipeImage,
@@ -71,11 +64,7 @@ var JUNGLE_SERVICE = (function () {
     recipeTime,
     recipeServing,
     recipeIngredient,
-    recipeIngredientTwo,
-    recipeIngredientThree,
-    recipeInstruction,
-    recipeInstructionTwo,
-    recipeInstructionThree
+    recipeInstruction
   ) {
     let recipeInfo = {
       recipeImage: recipeImage,
@@ -84,11 +73,7 @@ var JUNGLE_SERVICE = (function () {
       recipeTotalTime: recipeTime,
       recipeServingSize: recipeServing,
       recipeIngredient: recipeIngredient,
-      recipeIngredient: recipeIngredientTwo,
-      recipeIngredient: recipeIngredientThree,
       recipeInstruction: recipeInstruction,
-      recipeInstruction: recipeInstructionTwo,
-      recipeInstruction: recipeInstructionThree,
     };
 
     _db
@@ -96,7 +81,6 @@ var JUNGLE_SERVICE = (function () {
       .doc(id)
       .update(recipeInfo)
       .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
         swal("changes to recipe saved! :)");
       })
       .catch(function (error) {
@@ -104,6 +88,7 @@ var JUNGLE_SERVICE = (function () {
         console.log("Error adding changes document: ", error);
       });
   };
+
   //initialize firebase connection
   var _initFirebase = function () {
     firebase
@@ -115,29 +100,34 @@ var JUNGLE_SERVICE = (function () {
       });
   };
 
+  //deletes recipe from database
   var _deleteRecipe = function (id) {
     _db.collection("Recipes").doc(id).delete();
     swal("Recipe deleted!");
   };
 
+  //displays home page content
   var _homeContent = function () {
     let homeInfo = `<div class='home'><div class='home-info-holder'><div class='home-info'><h1>The Jungle Cook</h1><p>The home to various recipes of your choice. Add your own recipe today and fill the world with joy!</p></div><div class='pink-circle'><p>Want to be a jungle cook? Go ahead and the kitchen is yours!</p></div></div>`;
 
     return homeInfo;
   };
 
+  //displays browse page content
   var _browseContent = function () {
     let browseInfo = `<div class='browse'></div>`;
 
     return browseInfo;
   };
 
+  //display create recipe form page
   var _createRecipeContent = function (id) {
-    let createInfo = `<div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, create your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' placeholder='Add Recipe Image - Please enter an image url to add image'><input id='recipeName' class='input' type='text'  name='name' placeholder='Recipe Name'><input id='recipeDescription' class='input' type='text' name='description' placeholder='Recipe Description'><input id='recipeTime' class='input' type='text'  name='time' placeholder='Recipe Total Time'><input id='recipeServing' class='input' type='text'  name='servings' placeholder='Recipe Serving Size'><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><input id='recipeIngredient' class='input' type='text' name='image' placeholder='Ingredient #1'><input id='recipeIngredientTwo'class='input' type='text'  name='image' placeholder='Ingredient #2'><input id='recipeIngredientThree'class='input' type='text'  name='ingredient' placeholder='Ingredient #3'><div class='header-holder'><h2>Enter Instructions:</h2></div><input id='recipeInstruction'class='input' type='text'  name='image' placeholder='Instruction #1'><input id='recipeInstructionTwo'class='input' type='text'  name='instuctions' placeholder='Instruction #2'><input id='recipeInstructionThree'class='input' type='text' name='instructions' placeholder='Instruction #3'><button id="${id}" class='create-recipe-button'>Create Recipe</button></div></div></div>`;
+    let createInfo = `<div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, create your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' placeholder='Add Recipe Image - Please enter an image url to add image to your recipe'><input id='recipeName' class='input' type='text'  name='name' placeholder='Recipe Name'><input id='recipeDescription' class='input' type='text' name='description' placeholder='Recipe Description'><input id='recipeTime' class='input' type='text'  name='time' placeholder='Recipe Total Time'><input id='recipeServing' class='input' type='text'  name='servings' placeholder='Recipe Serving Size'><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><input id='recipeIngredient' class='input' type='text' name='ingredient' placeholder='Enter Ingredients'><div class='header-holder'><h2>Enter Instructions:</h2></div><input id='recipeInstruction'class='input' type='text'  name='image' placeholder='enter instructions'><button id="${id}" class='create-recipe-button'>Create Recipe</button></div></div></div>`;
 
     return createInfo;
   };
 
+  //displays login form page - not working just the css for the page
   var _createLoginContent = function () {
     let loginInfo = `<div class='login-wrapper'><div class='holder'><div class='input-holder'><div class='header-holder'><h1>Login Here!</h1></div><input class='input' type='text' name='email' placeholder='Email Address'><input class='input' type='text'  name='password' placeholder='Password'><div class='login-button'>Login</div></div><div class='input-holder'><div class='header-holder'><p>Don't have an account?</p><h1>Sign Up!</h1></div><input class='input' type='text'  name='fname' placeholder='First Name'><input class='input' type='text'  name='lname' placeholder='Last Name'><input class='input' type='text' name='email' placeholder='Email Address'><input class='input' type='text'  name='password' placeholder='Password'><div class='login-button'>Sign Up</div></div></div></div>`;
     return loginInfo;

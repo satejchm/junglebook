@@ -54,8 +54,7 @@ nav {
   top: 55px;
   right: 50px;
   display: none;
-  cursor: pointer;
-  z-index: 100; }
+  cursor: pointer; }
 
 @media all and (max-width: 768px) {
   nav {
@@ -65,7 +64,8 @@ nav {
     top: 0;
     right: 0;
     flex-direction: column;
-    justify-content: space-around; }
+    justify-content: space-around;
+    background-color: #a7e8bd; }
   .bars {
     display: block; } }
 
@@ -115,7 +115,7 @@ nav {
       text-align: center;
       align-items: center;
       justify-content: center;
-      z-index: 99; }
+      z-index: 97; }
       .home .home-info-holder .home-info p {
         width: 165px;
         font-size: 13px;
@@ -179,13 +179,18 @@ nav {
   color: black;
   font-family: "Caveat", cursive; }
   .browse .header-holder {
+    display: block;
     width: 75%;
     align-items: left;
     justify-content: left;
     margin-top: 150px; }
     .browse .header-holder h1 {
-      text-align: left; }
+      font-family: "Caveat", cursive;
+      text-align: left;
+      margin-left: 15%; }
   .browse .recipe-list-holder {
+    width: 80%;
+    margin-left: 10%;
     min-height: 100%;
     display: flex;
     flex-direction: row;
@@ -218,26 +223,6 @@ nav {
         height: 263px;
         background-color: #fcbcb8;
         border-radius: 20px; }
-      .browse .recipe-list-holder .recipe .pizza {
-        background-image: url("../images/recipe-pizza.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; }
-      .browse .recipe-list-holder .recipe .burger {
-        background-image: url("../images/recipe-burger.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; }
-      .browse .recipe-list-holder .recipe .chicken {
-        background-image: url("../images/recipe-pilaf.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; }
-      .browse .recipe-list-holder .recipe .chow {
-        background-image: url("../images/recipe-chowmein.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; }
       .browse .recipe-list-holder .recipe .recipe-info {
         width: 224px;
         height: 263px;
@@ -305,26 +290,31 @@ nav {
       .input-holder .create-recipe-button a:hover {
         border-bottom: 2px solid;
         padding: 3px; }
-  .input-holder .header-holder {
-    width: 75%;
-    align-items: left;
-    justify-content: left;
-    margin-top: 150px;
-    font-family: "Caveat", cursive; }
-    .input-holder .header-holder h1 {
-      text-align: left; }
-    .input-holder .header-holder h2 {
+    .input-holder .create-recipe-button .header-holder {
+      width: 75%;
+      align-items: left;
+      justify-content: left;
+      margin-top: 150px;
+      font-family: "Caveat", cursive; }
+      .input-holder .create-recipe-button .header-holder h1 {
+        text-align: left;
+        font-family: "Caveat", cursive; }
+      .input-holder .create-recipe-button .header-holder h2 {
+        font-size: 20px;
+        font-family: "Lato", sans-serif;
+        font-weight: bold; }
+    .input-holder .create-recipe-button .input {
+      margin-top: 75px;
       font-size: 20px;
-      font-family: "Lato", sans-serif;
-      font-weight: bold; }
+      height: 50px;
+      width: 1000px;
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: black; }
+
+@media all and (max-width: 768px) {
   .input-holder .input {
-    margin-top: 75px;
-    font-size: 20px;
-    height: 50px;
-    width: 1000px;
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: black; }
+    width: 200px; } }
 
 .login-wrapper {
   width: 100%;

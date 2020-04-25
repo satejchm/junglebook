@@ -43,7 +43,6 @@ nav {
   right: 50px;
   display: none;
   cursor: pointer;
-  z-index: 100;
 }
 
 @media all and (max-width: 768px) {
@@ -55,6 +54,7 @@ nav {
     right: 0;
     flex-direction: column;
     justify-content: space-around;
+    background-color: $mint;
   }
 
   .bars {

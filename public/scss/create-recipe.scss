@@ -37,32 +37,40 @@
         padding: 3px;
       }
     }
-  }
 
-  .header-holder {
-    width: 75%;
-    align-items: left;
-    justify-content: left;
-    margin-top: 150px;
-    font-family: $caveat;
-    h1 {
-      text-align: left;
+    .header-holder {
+      width: 75%;
+      align-items: left;
+      justify-content: left;
+      margin-top: 150px;
+      font-family: $caveat;
+      h1 {
+        text-align: left;
+        font-family: $caveat;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-family: $lato;
+        font-weight: bold;
+      }
     }
 
-    h2 {
+    .input {
+      margin-top: 75px;
       font-size: 20px;
-      font-family: $lato;
-      font-weight: bold;
+      height: 50px;
+      width: 1000px;
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: black;
     }
   }
-
-  .input {
-    margin-top: 75px;
-    font-size: 20px;
-    height: 50px;
-    width: 1000px;
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: black;
+}
+@media all and (max-width: 768px) {
+  .input-holder {
+    .input {
+      width: 200px;
+    }
   }
 }
