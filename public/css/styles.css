@@ -167,9 +167,9 @@ nav {
       background-color: blue;
       justify-content: center; }
 
-@media (max-width: 200px) {
-  .footer-wrapper .footer {
-    flex-direction: column; } }
+@media all and (max-width: 768px) {
+  .footer-wrapper .footer .links {
+    display: none; } }
 
 .browse {
   width: 100%;
@@ -296,19 +296,6 @@ nav {
         .create .input-holder .create-recipe-button a:hover {
           border-bottom: 2px solid;
           padding: 3px; }
-      .create .input-holder .create-recipe-button .header-holder {
-        width: 75%;
-        align-items: left;
-        justify-content: left;
-        margin-top: 150px;
-        font-family: "Caveat", cursive; }
-        .create .input-holder .create-recipe-button .header-holder h1 {
-          text-align: left;
-          font-family: "Caveat", cursive; }
-        .create .input-holder .create-recipe-button .header-holder h2 {
-          font-size: 20px;
-          font-family: "Lato", sans-serif;
-          font-weight: bold; }
       .create .input-holder .create-recipe-button .input {
         margin-top: 75px;
         font-size: 20px;
@@ -317,6 +304,20 @@ nav {
         outline: 0;
         border-width: 0 0 2px;
         border-color: black; }
+
+.header-holder {
+  width: 75%;
+  align-items: left;
+  justify-content: left;
+  margin-top: 150px;
+  font-family: "Caveat", cursive; }
+  .header-holder h1 {
+    text-align: left;
+    font-family: "Caveat", cursive; }
+  .header-holder h2 {
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+    font-weight: bold; }
 
 @media all and (max-width: 768px) {
   .create .input-holder .input {

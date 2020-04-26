@@ -107,7 +107,6 @@ function createRecipe() {
       JUNGLE_SERVICE.getData(displayData);
     } else {
       swal("please add data to your recipe! ");
-      console.log("error adding data");
     }
   });
 }

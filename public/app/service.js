@@ -85,7 +85,6 @@ var JUNGLE_SERVICE = (function () {
       })
       .catch(function (error) {
         swal("error adding changes to document!");
-        console.log("Error adding changes document: ", error);
       });
   };
 

@@ -46,10 +46,12 @@
   }
 }
 
-@media (max-width: 200px) {
+@media all and (max-width: 768px) {
   .footer-wrapper {
     .footer {
-      flex-direction: column;
+      .links {
+        display: none;
+      }
     }
   }
 }
