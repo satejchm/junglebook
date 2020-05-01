@@ -28,7 +28,7 @@ p {
 nav {
   font-family: "Caveat", cursive;
   font-size: 25px;
-  position: absolute;
+  position: fixed;
   top: 38px;
   right: 50px;
   height: 52px;
@@ -55,7 +55,8 @@ nav {
   top: 55px;
   right: 50px;
   display: none;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 100px; }
 
 @media all and (max-width: 768px) {
   nav {
@@ -69,12 +70,6 @@ nav {
     background-color: #a7e8bd; }
   .bars {
     display: block; } }
-
-@media all and (min-width: 768px) {
-  nav {
-    display: flex; }
-  .bars {
-    display: none; } }
 
 .home {
   width: 100%;
@@ -296,7 +291,15 @@ nav {
         .create .input-holder .create-recipe-button a:hover {
           border-bottom: 2px solid;
           padding: 3px; }
-      .create .input-holder .create-recipe-button .input {
+    .create .input-holder .create-recipe-ingredients,
+    .create .input-holder create-recipe-instructions {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .create .input-holder .create-recipe-ingredients .input,
+      .create .input-holder create-recipe-instructions .input {
         margin-top: 75px;
         font-size: 20px;
         height: 50px;
@@ -304,6 +307,20 @@ nav {
         outline: 0;
         border-width: 0 0 2px;
         border-color: black; }
+
+.add-more {
+  margin-top: 100px;
+  font-size: 25px;
+  font-family: "Caveat", cursive;
+  background-color: #efa7a7;
+  border-radius: 26px;
+  padding: 10px 16px; }
+  .add-more a {
+    text-decoration: none;
+    color: black; }
+    .add-more a:hover {
+      border-bottom: 2px solid;
+      padding: 3px; }
 
 .header-holder {
   width: 75%;

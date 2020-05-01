@@ -1,19 +1,20 @@
+let navOpen = false;
+
 function init() {
-  let navOpen = false;
   //function to display bars when the screen resolution is a certain width
   $(".bars").click(function (e) {
-    if (navOpen) {
-      $("nav").css("display", "none");
-      navOpen = false;
-    } else {
-      $("nav").css("display", "flex");
-      navOpen = true;
-    }
-    $("nav").click(function (e) {
-      $("nav").css("display", "none");
-      navOpen = false;
-    });
+    openFullNav();
   });
+}
+
+function openFullNav() {
+  if (navOpen) {
+    $("nav").css("display", "none");
+    navOpen = false;
+  } else {
+    $("nav").css("display", "flex");
+    navOpen = true;
+  }
 }
 
 function initNav() {
@@ -28,6 +29,7 @@ function initNav() {
 function navHome() {
   $("#home").click(function (e) {
     $(".content").html(JUNGLE_SERVICE.homeContent());
+    openFullNav();
   });
 }
 
@@ -36,6 +38,7 @@ function navBrowse() {
   $("#browse").click(function (e) {
     $(".content").html(JUNGLE_SERVICE.browseContent());
     JUNGLE_SERVICE.getData(displayData);
+    openFullNav();
   });
 }
 
@@ -43,7 +46,37 @@ function navBrowse() {
 function navCreateRecipe() {
   $("#create-recipe").click(function (e) {
     $(".content").html(JUNGLE_SERVICE.createRecipeContent());
-    createRecipe();
+    ingredientButton();
+    instructionButton();
+    openFullNav();
+  });
+  createRecipe();
+}
+
+//function to add ingredient to list when you click on add ingredient button
+function ingredientButton() {
+  var ingredientNumber = 3;
+  $("#ingredient").click(function (e) {
+    e.preventDefault();
+    console.log("clicked ing");
+    ingredientNumber++;
+    $("#create-recipe-ingredients").append(
+      `<input class='input' type="text" id='${ingredientNumber}' placeholder='Ingredient #${ingredientNumber}'>`
+    );
+    console.log(ingredientNumber);
+  });
+}
+
+function instructionButton() {
+  var instructionNumber = 3;
+  $("#instruction").click(function (e) {
+    e.preventDefault();
+    console.log("clicked instruction");
+
+    instructionNumber++;
+    $("#create-recipe-instructions").append(
+      `<input class='input' type="text" id='${instructionNumber}' placeholder='Instruction #${instructionNumber}'>`
+    );
   });
 }
 
@@ -51,6 +84,7 @@ function navCreateRecipe() {
 function navLogin() {
   $("#login").click(function (e) {
     $(".content").html(JUNGLE_SERVICE.createLoginContent());
+    openFullNav();
   });
 }
 
@@ -81,8 +115,27 @@ function createRecipe() {
     let recipeDescription = $("#recipeDescription").val();
     let recipeTime = $("#recipeTime").val();
     let recipeServing = $("#recipeServing").val();
-    let recipeIngredient = $("#recipeIngredient").val();
-    let recipeInstruction = $("#recipeInstruction").val();
+    let ingredientArray = [];
+    let instructionArray = [];
+
+    $("#create-recipe-ingredients")
+      .find("input")
+      .each(function (idx, value) {
+        let ingredID = value.id;
+        var obj = {};
+        obj[ingredID] = $("#" + value.id).val();
+        ingredientArray.push(obj);
+      });
+    console.log(ingredientArray);
+
+    $("#create-recipe-instructions")
+      .find("input")
+      .each(function (idx, value) {
+        let instructionID = value.id;
+        var obj = {};
+        obj[instructionID] = $("#" + value.id).val();
+        instructionArray.push(obj);
+      });
 
     if (
       //if the string is not empty(someone entered into each input) then it will adData to database and browse page
@@ -91,8 +144,8 @@ function createRecipe() {
       recipeDescription != "" &&
       recipeTime != "" &&
       recipeServing != "" &&
-      recipeIngredient != "" &&
-      recipeInstruction != ""
+      ingredientArray != "" &&
+      instructionArray != ""
     ) {
       JUNGLE_SERVICE.addData(
         recipeImage,
@@ -100,8 +153,8 @@ function createRecipe() {
         recipeDescription,
         recipeTime,
         recipeServing,
-        recipeIngredient,
-        recipeInstruction
+        ingredientArray,
+        instructionArray
       );
       $(".content").html(JUNGLE_SERVICE.browseContent());
       JUNGLE_SERVICE.getData(displayData);
@@ -206,6 +259,20 @@ function deleteButton() {
     JUNGLE_SERVICE.getData(displayData);
   });
 }
+
+$(window).on("resize", function () {
+  var win = $(this); //this = window
+  if (win.width() >= 769) {
+    $("nav").css("display", "flex");
+    $(".bars").css("display", "none");
+    navOpen = true;
+  }
+  if (win.width() <= 768) {
+    $(".bars").css("display", "flex");
+    $("nav").css("display", "none");
+    navOpen = false;
+  }
+});
 
 $(document).ready(function () {
   $(".content").html(JUNGLE_SERVICE.homeContent());

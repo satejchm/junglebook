@@ -30,8 +30,8 @@ var JUNGLE_SERVICE = (function () {
     recipeDescription,
     recipeTime,
     recipeServing,
-    recipeIngredient,
-    recipeInstruction
+    ingredientArray,
+    instructionArray
   ) {
     let recipeInfo = {
       recipeImage: recipeImage,
@@ -39,8 +39,8 @@ var JUNGLE_SERVICE = (function () {
       recipeDescription: recipeDescription,
       recipeTime: recipeTime,
       recipeServing: recipeServing,
-      recipeIngredient: recipeIngredient,
-      recipeInstruction: recipeInstruction,
+      ingredientArray: ingredientArray,
+      instructionArray: instructionArray,
     };
 
     _db
@@ -121,7 +121,7 @@ var JUNGLE_SERVICE = (function () {
 
   //display create recipe form page
   var _createRecipeContent = function (id) {
-    let createInfo = `<div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, create your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' placeholder='Add Recipe Image - Please enter an image url to add image to your recipe'><input id='recipeName' class='input' type='text'  name='name' placeholder='Recipe Name'><input id='recipeDescription' class='input' type='text' name='description' placeholder='Recipe Description'><input id='recipeTime' class='input' type='text'  name='time' placeholder='Recipe Total Time'><input id='recipeServing' class='input' type='text'  name='servings' placeholder='Recipe Serving Size'><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><input id='recipeIngredient' class='input' type='text' name='ingredient' placeholder='Enter Ingredients'><div class='header-holder'><h2>Enter Instructions:</h2></div><input id='recipeInstruction'class='input' type='text'  name='image' placeholder='enter instructions'><button id="${id}" class='create-recipe-button'>Create Recipe</button></div></div></div>`;
+    let createInfo = `<div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, create your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' placeholder='Add Recipe Image - Please enter an image url to add image to your recipe'><input id='recipeName' class='input' type='text'  name='name' placeholder='Recipe Name'><input id='recipeDescription' class='input' type='text' name='description' placeholder='Recipe Description'><input id='recipeTime' class='input' type='text'  name='time' placeholder='Recipe Total Time'><input id='recipeServing' class='input' type='text'  name='servings' placeholder='Recipe Serving Size'><div class='header-holder'><h2>Enter Ingredients:</h2></div><div id='create-recipe-ingredients'><input id='recipeIngredient' class='input' type='text' placeholder='Ingredient #1'><input id='recipeIngredient2' class='input' type='text' placeholder='Ingredient #2'><input id='recipeIngredient3' class='input' type='text' name='ingredient' placeholder='Ingredient #3'></div><br><button id="ingredient" class='add-more'>+ Add Ingredient</button><div class='header-holder'><h2>Enter Instructions:</h2></div><div id='create-recipe-instructions'><input id='recipeInstruction'class='input' type='text' placeholder='Instruction #1'><input id='recipeInstruction2' class='input' type='text' placeholder='Instruction #2'><input id='recipeInstruction3' class='input' type='text' name='instruction' placeholder='Instruction #3'></div><br><button id="instruction" class='add-more'>+ Add Instruction</button><button id="${id}" class='create-recipe-button'>Create Recipe</button></div></div>`;
 
     return createInfo;
   };

@@ -10,7 +10,7 @@
 nav {
   font-family: $caveat;
   font-size: 25px;
-  position: absolute;
+  position: fixed;
   top: 38px;
   right: 50px;
   height: 52px;
@@ -44,6 +44,7 @@ nav {
   right: 50px;
   display: none;
   cursor: pointer;
+  z-index: 100px;
 }
 
 @media all and (max-width: 768px) {
@@ -60,15 +61,5 @@ nav {
 
   .bars {
     display: block;
-  }
-}
-
-@media all and (min-width: 768px) {
-  nav {
-    display: flex;
-  }
-
-  .bars {
-    display: none;
   }
 }
