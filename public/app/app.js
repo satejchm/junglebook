@@ -49,8 +49,8 @@ function navCreateRecipe() {
     ingredientButton();
     instructionButton();
     openFullNav();
+    createRecipe();
   });
-  createRecipe();
 }
 
 //function to add ingredient to list when you click on add ingredient button
@@ -180,10 +180,11 @@ function viewRecipeDetails(addData) {
   var doc = addData.docs[idnumber];
   var id = doc.id;
   var rawData = doc.data();
+
   var container = `    <div class='view-recipe'><div class='view-recipe-holder'><div class='vertical-align-items'>
   <h1 class='vertical-align'>${rawData.recipeName}</h1><img style=" width: 468px; height: 421px;background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;" src="${rawData.recipeImage}" alt="food image"></div><div class='column-items'><h1>Description:</h1><p>${rawData.recipeDescription}</p><h1>Total Time:</h1><p>${rawData.recipeTime}</p><h1>Servings:</h1><p>${rawData.recipeServing}</p><h1>Ingredients:</h1><p>${rawData.recipeIngredient}</p><h1>Instructions:</h1><p>${rawData.recipeInstruction}</p><button id="${id}" class="edit-recipe-button">Edit</button></div></div></div>
+  background-size: cover;" src="${rawData.recipeImage}" alt="food image"></div><div class='column-items'><h1>Description:</h1><p>${rawData.recipeDescription}</p><h1>Total Time:</h1><p>${rawData.recipeTime}</p><h1>Servings:</h1><p>${rawData.recipeServing}</p><h1>Ingredients:</h1><p>${rawData.ingredientArray}</p><h1>Instructions:</h1><p>${rawData.instructionArray}</p><button id="${id}" class="edit-recipe-button">Edit</button></div></div></div>
     `;
   $(".content").html(container);
   editRecipeButton();
@@ -205,7 +206,7 @@ function editRecipe(addData) {
   var id = doc.id;
   var rawData = doc.data();
   var container = `
-  <div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, edit your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' value=${rawData.recipeImage}><input id='recipeName' class='input' type='text'  name='name' value=${rawData.recipeName}><input id='recipeDescription' class='input' type='text' name='description' value=${rawData.recipeDescription}><input id='recipeTime' class='input' type='text'  name='time' value=${rawData.recipeTime}><input id='recipeServing' class='input' type='text'  name='servings' value=${rawData.recipeServing}><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><input id='recipeIngredient' class='input' type='text' name='ingredient' value=${rawData.recipeIngredient}><div class='header-holder'><h2>Enter Instructions:</h2></div><input id='recipeInstruction'class='input' type='text'  name='instruction' value=${rawData.recipeInstruction}><button id="${id}" class='save-changes-button'>Save Changes</button><button id="${id}" class='delete-button'>Delete Recipe</button></div></div>
+  <div class='create'><div class='input-holder'><div class='header-holder'><h1>Hey, edit your recipe!</h1></div><input id='recipeImage' class='input' type='text' name='image' value=${rawData.recipeImage}><input id='recipeName' class='input' type='text'  name='name' value=${rawData.recipeName}><input id='recipeDescription' class='input' type='text' name='description' value=${rawData.recipeDescription}><input id='recipeTime' class='input' type='text'  name='time' value=${rawData.recipeTime}><input id='recipeServing' class='input' type='text'  name='servings' value=${rawData.recipeServing}><div id='recipe-ingredients' class='header-holder'><h2>Enter Ingredients:</h2></div><div id='edit-recipe-ingredients'><input id='recipeIngredient' class='input' type='text' name='ingredient' value=${rawData.ingredientArray}></div><div class='header-holder'><h2>Enter Instructions:</h2></div><div id='edit-recipe-instructions'><input id='recipeInstruction'class='input' type='text'  name='instruction' value=${rawData.instructionArray}></div><button id="${id}" class='save-changes-button'>Save Changes</button><button id="${id}" class='delete-button'>Delete Recipe</button></div></div>
     `;
   $(".content").html(container);
   saveChangesButton(id);
@@ -215,13 +216,32 @@ function editRecipe(addData) {
 //button to save changes after you edit the recipe info
 function saveChangesButton(id) {
   $(".save-changes-button").click(function (e) {
+    $("#edit-recipe-ingredients")
+      .find("input")
+      .each(function (idx, value) {
+        let ingredID = value.id;
+        var obj = {};
+        obj[ingredID] = $("#" + value.id).val();
+        ingredientArray.push(obj);
+      });
+    console.log(ingredientArray);
+
+    $("#edit-recipe-instructions")
+      .find("input")
+      .each(function (idx, value) {
+        let instructionID = value.id;
+        var obj = {};
+        obj[instructionID] = $("#" + value.id).val();
+        instructionArray.push(obj);
+      });
+
     let recipeImage = $("#recipeImage").val();
     let recipeName = $("#recipeName").val();
     let recipeDescription = $("#recipeDescription").val();
     let recipeTime = $("#recipeTime").val();
     let recipeServing = $("#recipeServing").val();
-    let recipeIngredient = $("#recipeIngredient").val();
-    let recipeInstruction = $("#recipeInstruction").val();
+    let ingredientArray = [];
+    let instructionArray = [];
 
     if (
       recipeImage != "" &&
@@ -229,8 +249,8 @@ function saveChangesButton(id) {
       recipeDescription != "" &&
       recipeTime != "" &&
       recipeServing != "" &&
-      recipeIngredient != "" &&
-      recipeInstruction != ""
+      ingredientArray != "" &&
+      instructionArray != ""
     ) {
       JUNGLE_SERVICE.updateRecipe(
         id,
@@ -239,8 +259,8 @@ function saveChangesButton(id) {
         recipeDescription,
         recipeTime,
         recipeServing,
-        recipeIngredient,
-        recipeInstruction
+        ingredientArray,
+        instructionArray
       );
     } else {
       swal("please finish making changes to data");

@@ -63,8 +63,8 @@ var JUNGLE_SERVICE = (function () {
     recipeDescription,
     recipeTime,
     recipeServing,
-    recipeIngredient,
-    recipeInstruction
+    ingredientArray,
+    instructionArray
   ) {
     let recipeInfo = {
       recipeImage: recipeImage,
@@ -72,8 +72,8 @@ var JUNGLE_SERVICE = (function () {
       recipeDescription: recipeDescription,
       recipeTotalTime: recipeTime,
       recipeServingSize: recipeServing,
-      recipeIngredient: recipeIngredient,
-      recipeInstruction: recipeInstruction,
+      recipeIngredient: ingredientArray,
+      recipeInstruction: instructionArray,
     };
 
     _db
